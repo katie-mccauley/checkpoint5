@@ -36,7 +36,7 @@ class PostsService {
   async createPost(body) {
     const res = await api.post('api/posts/', body)
     logger.log(res.data)
-    AppState.posts.unshift(body)
+    AppState.posts.unshift(res.data)
   }
 }
 
