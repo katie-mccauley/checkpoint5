@@ -11,7 +11,11 @@
           />
         </div>
         <div class="col-4 d-flex justify-content-end">
-          <i @click="deletePost" class="mdi mdi-delete"></i>
+          <i
+            @click="deletePost"
+            v-if="account.id == post.creator.id"
+            class="mdi mdi-delete"
+          ></i>
         </div>
       </div>
       <h2 class="text-danger">{{ post.creator.name }}</h2>
@@ -67,6 +71,8 @@ export default {
         }
       },
       likes: computed(() => AppState.likes),
+      account: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
     };
   },
 };
