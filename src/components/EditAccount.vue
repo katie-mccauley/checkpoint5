@@ -82,7 +82,7 @@
       <input
         v-model="state.editable.graduated"
         type="checkbox"
-        class="form-control"
+        class=""
         aria-describedby="helpId"
       />
     </div>
@@ -118,6 +118,9 @@ export default {
       async editProfile() {
         try {
           await accountService.editProfile(state.editable);
+          // Modal.getOrCreateInstance(
+          //   document.getElementById("form-modal")
+          // ).hide();
         } catch (error) {
           logger.error(error);
         }

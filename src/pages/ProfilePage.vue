@@ -7,10 +7,12 @@
             <img :src="profile.coverImg" class="img-fluid crop" alt="" />
             <h3>{{ profile.name }}</h3>
             <p>{{ profile.bio }}</p>
+            <i v-if="profile.graduated" class="mdi mdi-account"></i>
           </div>
           <div class="col-2 d-flex justify-content-end">
             <b
               ><i
+                v-if="account.id == profile.id"
                 data-bs-toggle="modal"
                 data-bs-target="#edit-account"
                 class="mdi mdi-pencil selectable"

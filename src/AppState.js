@@ -9,4 +9,5 @@ export const AppState = reactive({
   newPage: {},
   oldPage: {},
   profile: {},
+  all: []
 })

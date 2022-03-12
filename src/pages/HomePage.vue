@@ -8,6 +8,9 @@
       <div class="col-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
+      <div class="col-3" v-for="a in ads" :key="a.id">
+        <Ad :ad="a" />
+      </div>
     </div>
   </div>
   <div></div>
@@ -19,6 +22,7 @@ import { logger } from "../utils/Logger";
 import { postsService } from "../services/PostsService";
 import { AppState } from "../AppState";
 import { useRoute } from "vue-router";
+import { adsService } from "../services/AdsService";
 export default {
   name: "Home",
 
@@ -26,6 +30,7 @@ export default {
     onMounted(async () => {
       try {
         await postsService.getAll();
+        await adsService.getAllA();
       } catch (error) {
         logger.error(error);
       }
@@ -48,6 +53,7 @@ export default {
       posts: computed(() => AppState.posts),
       nextPage: computed(() => AppState.newPage),
       previousPage: computed(() => AppState.oldPage),
+      ads: computed(() => AppState.all),
     };
   },
 };
