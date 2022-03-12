@@ -9,6 +9,7 @@
       />
       <h2 class="text-danger">{{ post.creator.name }}</h2>
       <h2>{{ post.body }}</h2>
+      <img v-if="post.imgUrl" :src="post.imgUrl" alt="" />
       <button class="btn" @click="like">like</button>
       {{ post.likes.length }}
     </div>

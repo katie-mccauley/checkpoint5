@@ -5,5 +5,8 @@ export const AppState = reactive({
   user: {},
   account: {},
   posts: [],
-  likes: []
+  likes: [],
+  newPage: {},
+  oldPage: {},
+  profile: {},
 })

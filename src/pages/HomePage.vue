@@ -1,11 +1,16 @@
 <template>
   <div class="container-fluid">
+    <button @click="changePage(previousPage)" class="btn btn-info me-2">
+      New
+    </button>
+    <button @click="changePage(nextPage)" class="btn btn-danger">Old</button>
     <div class="row">
       <div class="col-3" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
     </div>
   </div>
+  <div></div>
 </template>
 
 <script>
@@ -24,7 +29,16 @@ export default {
       }
     });
     return {
+      async changePage(page) {
+        try {
+          await postsService.changePage(page);
+        } catch (error) {
+          logger.error(error);
+        }
+      },
       posts: computed(() => AppState.posts),
+      nextPage: computed(() => AppState.newPage),
+      previousPage: computed(() => AppState.oldPage),
     };
   },
 };

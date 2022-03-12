@@ -4,10 +4,12 @@ import { api } from "./AxiosService"
 
 class PostsService {
 
-  async getAll() {
-    const res = await api.get('api/posts')
+  async getAll(query = {}) {
+    const res = await api.get('api/posts/', { params: query })
     logger.log(res.data)
     AppState.posts = res.data.posts
+    AppState.newPage = res.data.newer
+    AppState.oldPage = res.data.older
   }
   async like(data) {
     const res = await api.post('api/posts/' + data.id + '/like')
@@ -21,6 +23,20 @@ class PostsService {
     let like = AppState.posts.findIndex(l => l.id === data.id)
     AppState.posts.splice(like, 1, res.data)
 
+  }
+
+  async changePage(page) {
+    const res = await api.get(page)
+    logger.log(page)
+    AppState.posts = res.data.posts
+    AppState.newPage = res.data.newer
+    AppState.oldPage = res.data.older
+  }
+
+  async createPost(body) {
+    const res = await api.post('api/posts/', body)
+    logger.log(res.data)
+    AppState.posts.unshift(body)
   }
 }
 

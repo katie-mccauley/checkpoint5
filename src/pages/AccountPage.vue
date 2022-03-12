@@ -4,19 +4,21 @@
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
   </div>
+  <CreateForm />
 </template>
 
 <script>
-import { computed } from 'vue'
-import { AppState } from '../AppState'
+import { computed } from "vue";
+import { AppState } from "../AppState";
 export default {
-  name: 'Account',
+  name: "Account",
   setup() {
     return {
-      account: computed(() => AppState.account)
-    }
-  }
-}
+      account: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
+    };
+  },
+};
 </script>
 
 <style scoped>
