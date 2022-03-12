@@ -1,9 +1,28 @@
 <template>
   <div class="container-fluid">
-    <button @click="changePage(previousPage)" class="btn btn-info me-2">
-      New
-    </button>
-    <button @click="changePage(nextPage)" class="btn btn-danger">Old</button>
+    <div class="row">
+      <div class="col-12">
+        <Search />
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <button
+          v-if="nextPage"
+          @click="changePage(nextPage)"
+          class="btn btn-info me-2"
+        >
+          New
+        </button>
+        <button
+          v-if="previousPage"
+          @click="changePage(previousPage)"
+          class="btn btn-danger"
+        >
+          Old
+        </button>
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
