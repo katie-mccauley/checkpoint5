@@ -1,6 +1,15 @@
 <template>
   <form
-    class="bg-grey darken-20 justify-content-center elevation-3 col-8 p-2 m-5"
+    class="
+      bg-grey
+      darken-20
+      justify-content-center
+      elevation-3
+      shadow
+      col-8
+      p-2
+      m-5
+    "
     @submit.prevent="createPost"
   >
     <div class="col-md-4 mb-2">

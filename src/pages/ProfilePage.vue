@@ -1,9 +1,22 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-10 bg-primary mt-2 text-light">
-        <h3>{{ profile.email }}</h3>
-
+      <div class="col-8 bg-primary mt-2 text-light shadow rounded">
+        <div class="row justify-content-between">
+          <div class="col-5">
+            <h3>{{ profile.email }}</h3>
+          </div>
+          <div class="col-2 d-flex justify-content-end">
+            <b
+              ><i
+                data-bs-toggle="modal"
+                data-bs-target="#edit-account"
+                class="mdi mdi-pencil selectable"
+              >
+              </i
+            ></b>
+          </div>
+        </div>
         <h2>
           <a v-if="profile.linkedin" :href="profile.linkedin"
             ><i class="mdi mdi-linkedin"></i
@@ -26,6 +39,11 @@
         <Post :post="p" />
       </div>
     </div>
+    <Modal id="edit-account">
+      <template #title> Edit Account </template>
+      <template #body> This is the body</template>
+      <template #footer>This is the footer</template>
+    </Modal>
   </div>
 </template>
 
@@ -36,6 +54,7 @@ import { useRoute } from "vue-router";
 import { profilesService } from "../services/ProfilesService";
 import { AppState } from "../AppState";
 import { postsService } from "../services/PostsService";
+import { logger } from "../utils/Logger";
 export default {
   setup() {
     const route = useRoute();
