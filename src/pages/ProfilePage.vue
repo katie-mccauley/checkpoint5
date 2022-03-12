@@ -41,7 +41,7 @@
     </div>
     <Modal id="edit-account">
       <template #title> Edit Account </template>
-      <template #body> This is the body</template>
+      <template #body><EditAccount /></template>
       <template #footer>This is the footer</template>
     </Modal>
   </div>
