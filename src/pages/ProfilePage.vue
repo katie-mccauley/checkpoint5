@@ -1,15 +1,28 @@
 <template>
-  <div class="component">
-    <div class="row">
-      <div class="col-10 bg-primary text-light">
-        {{ profile.email }}
-        {{ profile.name }}
-        <a v-if="profile.linkedin" :href="profile.linkedin"
-          ><i class="mdi mdi-linkedin"></i
-        ></a>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-10 bg-primary mt-2 text-light">
+        <h3>{{ profile.email }}</h3>
+
+        <h2>
+          <a v-if="profile.linkedin" :href="profile.linkedin"
+            ><i class="mdi mdi-linkedin"></i
+          ></a>
+        </h2>
+        <!-- <h2 class="selectable">Github <span ></span></h2> -->
+        <h2>
+          <a v-if="profile.github" :href="profile.github">
+            <i class="mdi mdi-heart"></i>
+          </a>
+        </h2>
+        <h2>
+          <a v-if="profile.resume" :href="profile.resume">
+            <i class="mdi mdi-heart"></i>
+          </a>
+        </h2>
       </div>
       <CreateForm v-if="account.id == profile.id" />
-      <div class="col-3" v-for="p in posts" :key="p.id">
+      <div class="col-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
     </div>

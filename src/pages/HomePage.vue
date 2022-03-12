@@ -4,8 +4,8 @@
       New
     </button>
     <button @click="changePage(nextPage)" class="btn btn-danger">Old</button>
-    <div class="row">
-      <div class="col-3" v-for="p in posts" :key="p.id">
+    <div class="row justify-content-center">
+      <div class="col-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
     </div>
@@ -14,14 +14,23 @@
 </template>
 
 <script>
-import { computed, onMounted } from "@vue/runtime-core";
+import { computed, onMounted, watchEffect } from "@vue/runtime-core";
 import { logger } from "../utils/Logger";
 import { postsService } from "../services/PostsService";
 import { AppState } from "../AppState";
+import { useRoute } from "vue-router";
 export default {
   name: "Home",
+
   setup() {
     onMounted(async () => {
+      try {
+        await postsService.getAll();
+      } catch (error) {
+        logger.error(error);
+      }
+    });
+    watchEffect(async () => {
       try {
         await postsService.getAll();
       } catch (error) {
