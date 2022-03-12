@@ -5,6 +5,7 @@
     <p>{{ account.email }}</p>
   </div>
   <CreateForm />
+  <EditAccount />
 </template>
 
 <script>

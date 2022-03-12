@@ -14,9 +14,9 @@ class AccountService {
 
   async editProfile(editbody) {
     const res = await api.put('/account', editbody)
-    logger.log('edit account', res.data)
-    // AppState.account = res.data
-    // AppState.profile = res.data
+    logger.log('edit account', editbody)
+    AppState.account = res.data
+    AppState.profile = res.data
   }
 }
 

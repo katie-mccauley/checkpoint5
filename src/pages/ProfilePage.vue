@@ -4,7 +4,9 @@
       <div class="col-8 bg-primary mt-2 text-light shadow rounded">
         <div class="row justify-content-between">
           <div class="col-5">
-            <h3>{{ profile.email }}</h3>
+            <img :src="profile.coverImg" class="img-fluid crop" alt="" />
+            <h3>{{ profile.name }}</h3>
+            <p>{{ profile.bio }}</p>
           </div>
           <div class="col-2 d-flex justify-content-end">
             <b
@@ -77,4 +79,9 @@ export default {
 
 
 <style lang="scss" scoped>
+.crop {
+  height: 70px;
+  max-width: 70px;
+  border-radius: 50%;
+}
 </style>

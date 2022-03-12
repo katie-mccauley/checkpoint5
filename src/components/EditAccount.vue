@@ -107,6 +107,7 @@
 import { reactive } from "@vue/reactivity";
 import { logger } from "../utils/Logger";
 import { accountService } from "../services/AccountService";
+import { Modal } from "bootstrap";
 export default {
   setup() {
     const state = reactive({
