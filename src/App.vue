@@ -5,10 +5,10 @@
   <main>
     <div class="container-fluid">
       <div class="row flex-row">
-        <div class="col-6">
+        <div class="col-md-6">
           <router-view />
         </div>
-        <div class="col-2 d-flex flex-column" v-for="a in ads" :key="a.id">
+        <div class="col-md-2 d-flex flex-column" v-for="a in ads" :key="a.id">
           <Ad :ad="a" />
         </div>
       </div>

@@ -8,7 +8,7 @@
             <h3>{{ profile.name }} | {{ profile.class }}</h3>
             <p>{{ profile.bio }}</p>
             <span v-if="profile.graduated">
-              <i class="mdi mdi-account"></i>
+              <i class="mdi mdi-school"></i>
             </span>
             <span v-else></span>
           </div>
@@ -31,25 +31,22 @@
                 class="text-success"
                 v-if="profile.linkedin"
                 :href="profile.linkedin"
-                >Linkedin
+                ><i class="mdi mdi-linkedin"></i>
               </a>
             </h2>
           </div>
           <div class="col-4">
             <h2>
               <a class="text-dark" v-if="profile.github" :href="profile.github"
-                >Github
+                ><i class="mdi mdi-github"></i>
               </a>
             </h2>
           </div>
           <div class="col-4">
             <h2>
-              <a
-                class="text-warning"
-                v-if="profile.resume"
-                :href="profile.resume"
-                >Resume</a
-              >
+              <a class="text-dark" v-if="profile.resume" :href="profile.resume"
+                ><i class="mdi mdi-file-account"></i
+              ></a>
             </h2>
           </div>
         </div>

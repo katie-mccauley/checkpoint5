@@ -3,10 +3,10 @@
     <input
       v-model="searchTerm"
       type="text"
-      class="col-9"
+      class="col-md-9 col-8"
       placeholder="search...."
     />
-    <button class="btn btn-outline-primary col-3">search</button>
+    <button class="btn btn-outline-primary col-4 col-md-3">search</button>
   </form>
 </template>
 

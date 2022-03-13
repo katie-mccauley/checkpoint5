@@ -1,13 +1,13 @@
 <template>
   <div class="container-fluid">
     <div class="row m-3 mt-2">
-      <div class="col-8">
+      <div class="col-11">
         <Search />
       </div>
     </div>
 
     <div class="row justify-content-center ms-5">
-      <div class="col-7" v-for="p in posts" :key="p.id">
+      <div class="col-md-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
     </div>
