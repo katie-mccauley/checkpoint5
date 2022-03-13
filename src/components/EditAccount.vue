@@ -20,6 +20,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Please input image"
       />
     </div>
 
@@ -30,6 +31,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Name..."
       />
     </div>
     <div class="col-md-8 mb-2">
@@ -39,6 +41,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Bio....."
       />
     </div>
     <div class="col-md-8 mb-2">
@@ -48,6 +51,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Linkdedin link"
       />
     </div>
     <div class="col-md-8 mb-2">
@@ -57,6 +61,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Github link"
       />
     </div>
     <div class="col-md-8 mb-2">
@@ -66,6 +71,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Resume Link"
       />
     </div>
     <div class="col-md-8 mb-2">
@@ -75,6 +81,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Profile Picture"
       />
     </div>
     <div class="col-2 mb-2">
@@ -93,6 +100,7 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Class name"
       />
     </div>
 

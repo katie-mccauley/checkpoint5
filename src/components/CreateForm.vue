@@ -20,16 +20,18 @@
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Body....."
       />
     </div>
 
     <div class="col-md-8 mb-2">
-      <label for="" class="form-label">cover image</label>
+      <label for="" class="form-label">Image Post</label>
       <input
         v-model="state.editable.imgUrl"
         type="text"
         class="form-control"
         aria-describedby="helpId"
+        placeholder="Image here"
       />
     </div>
 
