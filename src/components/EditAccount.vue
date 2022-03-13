@@ -15,7 +15,7 @@
     <div class="col-md-4 mb-2">
       <label for="" class="form-label">Picture</label>
       <input
-        v-model="state.editable.picture"
+        v-model="editable.picture"
         required
         type="text"
         class="form-control"
@@ -27,7 +27,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">Name</label>
       <input
-        v-model="state.editable.name"
+        v-model="editable.name"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -37,7 +37,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">Bio</label>
       <input
-        v-model="state.editable.bio"
+        v-model="editable.bio"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -47,7 +47,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">Linkedin</label>
       <input
-        v-model="state.editable.linkedin"
+        v-model="editable.linkedin"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -57,7 +57,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">GitHub</label>
       <input
-        v-model="state.editable.github"
+        v-model="editable.github"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -67,7 +67,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">Resume</label>
       <input
-        v-model="state.editable.resume"
+        v-model="editable.resume"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -77,7 +77,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">Cover Image</label>
       <input
-        v-model="state.editable.coverImg"
+        v-model="editable.coverImg"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -87,8 +87,7 @@
     <div class="col-2 mb-2">
       <label for="" class="form-label">Alumni Status</label>
       <input
-        v-model="state.editable.graduated"
-        checked
+        v-model="editable.graduated"
         type="checkbox"
         class=""
         aria-describedby="helpId"
@@ -97,7 +96,7 @@
     <div class="col-md-8 mb-2">
       <label for="" class="form-label">Class</label>
       <input
-        v-model="state.editable.class"
+        v-model="editable.class"
         type="text"
         class="form-control"
         aria-describedby="helpId"
@@ -113,20 +112,33 @@
 
 
 <script>
-import { reactive } from "@vue/reactivity";
+import { reactive, ref } from "@vue/reactivity";
 import { logger } from "../utils/Logger";
 import { accountService } from "../services/AccountService";
 import { Modal } from "bootstrap";
+import { watchEffect } from "@vue/runtime-core";
 export default {
-  setup() {
-    const state = reactive({
-      editable: {},
+  props: {
+    profileData: {
+      type: Object,
+      required: false,
+      default: {},
+    },
+  },
+  setup(props) {
+    // const state = reactive({
+    //   editable: {},
+    // });
+    const editable = ref({});
+    watchEffect(() => {
+      logger.log("change happened re-running watch effect");
+      editable.value = props.profileData;
     });
     return {
-      state,
+      editable,
       async editProfile() {
         try {
-          await accountService.editProfile(state.editable);
+          await accountService.editProfile(editable.value);
 
           // Modal.getOrCreateInstance(
           //   document.getElementById("form-modal")

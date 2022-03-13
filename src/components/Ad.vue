@@ -1,6 +1,6 @@
 <template>
   <h3 class="text-center">
-    <a :href="ad.linkURL">{{ ad.title }}</a>
+    {{ ad.title }}
   </h3>
   <img class="img-fluid rounded" :src="ad.banner" />
 </template>

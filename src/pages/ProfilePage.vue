@@ -7,7 +7,10 @@
             <img :src="profile.coverImg" class="img-fluid crop" alt="" />
             <h3>{{ profile.name }}</h3>
             <p>{{ profile.bio }}</p>
-            <i v-if="profile.graduated" class="mdi mdi-account"></i>
+            <span v-if="profile.graduated">
+              <i class="mdi mdi-account"></i>
+            </span>
+            <span v-else></span>
           </div>
           <div class="col-2 d-flex justify-content-end">
             <b
@@ -64,7 +67,7 @@
     </div>
     <Modal id="edit-account">
       <template #title> Edit Account </template>
-      <template #body><EditAccount /></template>
+      <template #body><EditAccount :profileData="profile" /></template>
       <template #footer>This is the footer</template>
     </Modal>
   </div>

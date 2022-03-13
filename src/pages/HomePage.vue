@@ -7,9 +7,6 @@
     </div>
 
     <div class="row justify-content-center ms-5">
-      <div class="col-3" v-for="a in ads" :key="a.id">
-        <Ad :ad="a" />
-      </div>
       <div class="col-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
@@ -50,7 +47,7 @@ export default {
     onMounted(async () => {
       try {
         await postsService.getAll();
-        await adsService.getAllA();
+        // await adsService.getAllA();
       } catch (error) {
         logger.error(error);
       }
