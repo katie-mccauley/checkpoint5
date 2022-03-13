@@ -21,22 +21,22 @@
             ></b>
           </div>
         </div>
-        <h2>
-          <a v-if="profile.linkedin" :href="profile.linkedin"
-            ><i class="mdi mdi-linkedin"></i
-          ></a>
+        <h2 class="text-dark">
+          <a v-if="profile.linkedin" :href="profile.linkedin">Linkedin</a>
+          <a v-if="profile.github" :href="profile.github">Github</a>
+          <a v-if="profile.resume" :href="profile.resume">Resume</a>
         </h2>
         <!-- <h2 class="selectable">Github <span ></span></h2> -->
-        <h2>
+        <!-- <h2>
           <a v-if="profile.github" :href="profile.github">
             <i class="mdi mdi-heart"></i>
           </a>
-        </h2>
-        <h2>
+        </h2> -->
+        <!-- <h2>
           <a v-if="profile.resume" :href="profile.resume">
             <i class="mdi mdi-heart"></i>
           </a>
-        </h2>
+        </h2> -->
       </div>
       <CreateForm v-if="account.id == profile.id" />
 

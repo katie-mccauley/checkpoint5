@@ -1,12 +1,21 @@
 <template>
   <div class="container-fluid">
-    <div class="row ms-2 mt-2">
+    <div class="row m-3 mt-2">
       <div class="col-8">
         <Search />
       </div>
     </div>
+
+    <div class="row justify-content-center ms-5">
+      <div class="col-3" v-for="a in ads" :key="a.id">
+        <Ad :ad="a" />
+      </div>
+      <div class="col-7" v-for="p in posts" :key="p.id">
+        <Post :post="p" />
+      </div>
+    </div>
     <div class="row justify-content-center">
-      <div class="col-3">
+      <div class="col-3 text-center">
         <button
           :disabled="!nextPage"
           @click="changePage(nextPage)"
@@ -21,14 +30,6 @@
         >
           Old
         </button>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-7" v-for="p in posts" :key="p.id">
-        <Post :post="p" />
-      </div>
-      <div class="col-3" v-for="a in ads" :key="a.id">
-        <Ad :ad="a" />
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col bg-secondary rounded shadow m-3">
+  <div class="row justify-content-center">
+    <div class="col-8 bg-secondary rounded shadow m-3">
       <div class="row justify-content-between">
         <div class="col-4">
           <img
