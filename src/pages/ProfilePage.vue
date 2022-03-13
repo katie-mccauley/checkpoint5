@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-8 bg-primary mt-2 text-light shadow rounded">
+      <div class="col-8 picture-background mt-2 text-light shadow rounded">
         <div class="row justify-content-between">
-          <div class="col-5">
+          <div class="col-7">
             <img :src="profile.coverImg" class="img-fluid crop" alt="" />
-            <h3>{{ profile.name }}</h3>
+            <h3>{{ profile.name }} | {{ profile.class }}</h3>
             <p>{{ profile.bio }}</p>
             <span v-if="profile.graduated">
               <i class="mdi mdi-account"></i>
@@ -24,11 +24,36 @@
             ></b>
           </div>
         </div>
-        <h2 class="text-dark">
-          <a v-if="profile.linkedin" :href="profile.linkedin">Linkedin</a>
-          <a v-if="profile.github" :href="profile.github">Github</a>
-          <a v-if="profile.resume" :href="profile.resume">Resume</a>
-        </h2>
+        <div class="row">
+          <div class="col-4">
+            <h2 class="text-dark">
+              <a
+                class="text-success"
+                v-if="profile.linkedin"
+                :href="profile.linkedin"
+                >Linkedin
+              </a>
+            </h2>
+          </div>
+          <div class="col-4">
+            <h2>
+              <a class="text-dark" v-if="profile.github" :href="profile.github"
+                >Github
+              </a>
+            </h2>
+          </div>
+          <div class="col-4">
+            <h2>
+              <a
+                class="text-warning"
+                v-if="profile.resume"
+                :href="profile.resume"
+                >Resume</a
+              >
+            </h2>
+          </div>
+        </div>
+
         <!-- <h2 class="selectable">Github <span ></span></h2> -->
         <!-- <h2>
           <a v-if="profile.github" :href="profile.github">
@@ -42,7 +67,6 @@
         </h2> -->
       </div>
       <CreateForm v-if="account.id == profile.id" />
-
       <div class="col-7" v-for="p in posts" :key="p.id">
         <Post :post="p" />
       </div>
@@ -96,6 +120,7 @@ export default {
     });
     return {
       profile: computed(() => AppState.profile),
+      pic: computed(() => `url('${AppState.profile.picture}')`),
       posts: computed(() => AppState.posts),
       account: computed(() => AppState.account),
       newest: computed(() => AppState.newPage),
@@ -118,5 +143,10 @@ export default {
   height: 70px;
   max-width: 70px;
   border-radius: 50%;
+}
+.picture-background {
+  background-image: v-bind(pic);
+  background-position: center;
+  background-size: cover;
 }
 </style>

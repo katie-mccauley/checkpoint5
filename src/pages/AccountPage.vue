@@ -5,7 +5,6 @@
     <p>{{ account.email }}</p>
   </div>
   <div class="row justify-content-center text-center">
-    <h1>Create a Post</h1>
     <CreateForm />
   </div>
   <div class="row justify-content-center text-center">

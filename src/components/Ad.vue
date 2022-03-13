@@ -2,7 +2,7 @@
   <h3 class="text-center">
     {{ ad.title }}
   </h3>
-  <img class="img-fluid rounded" :src="ad.banner" />
+  <img class="img-fluid rounded" :src="ad.square" />
 </template>
 
 

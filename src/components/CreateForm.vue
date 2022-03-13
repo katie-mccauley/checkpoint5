@@ -12,6 +12,7 @@
     "
     @submit.prevent="createPost"
   >
+    <h2>Create Post</h2>
     <div class="col-md-4 mb-2">
       <label for="" class="form-label">Body</label>
       <input
