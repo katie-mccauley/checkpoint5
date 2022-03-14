@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-3 text-center">
+      <div class="col-md-3 text-center">
         <button
           :disabled="!nextPage"
           @click="changePage(nextPage)"

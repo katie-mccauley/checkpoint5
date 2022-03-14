@@ -5,6 +5,7 @@
     role="dialog"
     aria-labelledby="modelTitleId"
     aria-hidden="true"
+    id="form-modal"
   >
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content bg-transparent border-0 text-light">

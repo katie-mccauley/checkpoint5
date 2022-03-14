@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-3">
+      <div class="text-center col-md-3">
         <button
           :disabled="!newest"
           @click="changePage(newest)"
@@ -89,7 +89,6 @@
     <Modal id="edit-account">
       <template #title> Edit Account </template>
       <template #body><EditAccount :profileData="profile" /></template>
-      <template #footer>This is the footer</template>
     </Modal>
   </div>
 </template>
@@ -102,6 +101,7 @@ import { profilesService } from "../services/ProfilesService";
 import { AppState } from "../AppState";
 import { postsService } from "../services/PostsService";
 import { logger } from "../utils/Logger";
+import { Modal } from "bootstrap";
 export default {
   setup() {
     const route = useRoute();

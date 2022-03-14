@@ -105,7 +105,7 @@
     </div>
 
     <div class="col-12 d-flex justify-content-end">
-      <button class="btn btn-primary">Edit</button>
+      <button data-bs-dismiss="modal" class="btn btn-primary">Edit</button>
     </div>
   </form>
 </template>
@@ -139,7 +139,6 @@ export default {
       async editProfile() {
         try {
           await accountService.editProfile(editable.value);
-
           // Modal.getOrCreateInstance(
           //   document.getElementById("form-modal")
           // ).hide();

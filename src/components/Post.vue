@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col-md-8 bg-light rounded shadow m-3 card">
+    <div class="col-md-10 bg-light rounded shadow m-3 card">
       <div class="row justify-content-between">
         <div class="col-4">
           <img
@@ -11,20 +11,17 @@
           />
         </div>
         <div class="col-4 d-flex justify-content-end">
-          <i
-            @click="deletePost"
-            v-if="account.id == post.creator.id"
-            class="mdi mdi-delete"
-          ></i>
+          <h1>
+            <i
+              @click="deletePost"
+              v-if="account.id == post.creator.id"
+              class="mdi mdi-alpha-x"
+            ></i>
+          </h1>
         </div>
       </div>
       <h2 class="text-danger">{{ post.creator.name }}</h2>
-      <img
-        v-if="post.imgUrl"
-        :src="post.imgUrl"
-        alt=""
-        class="img-fluid crop-postimg"
-      />
+      <img v-if="post.imgUrl" :src="post.imgUrl" alt="" class="img-fluid" />
       <div>
         <p>Post updated: {{ new Date(post.createdAt).toLocaleString() }}</p>
       </div>
@@ -46,6 +43,7 @@ import { postsService } from "../services/PostsService";
 import { logger } from "../utils/Logger";
 import { AppState } from "../AppState";
 import { watchEffect } from "@vue/runtime-core";
+import Pop from "../utils/Pop";
 
 export default {
   props: {
@@ -68,7 +66,9 @@ export default {
       },
       async deletePost() {
         try {
-          await postsService.deletePost({ id: props.post.id });
+          if (await Pop.confirm()) {
+            postsService.deletePost({ id: props.post.id });
+          }
         } catch (error) {
           logger.error(error);
         }
@@ -92,8 +92,7 @@ export default {
   border-radius: 50%;
 }
 
-.crop-postimg {
-  height: 200px;
-  max-width: 200px;
+.crop-posting {
+  max-height: 100px;
 }
 </style>

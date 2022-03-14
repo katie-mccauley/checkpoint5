@@ -8,8 +8,12 @@
         <div class="col-md-6">
           <router-view />
         </div>
-        <div class="col-md-2 d-flex flex-column" v-for="a in ads" :key="a.id">
-          <Ad :ad="a" />
+        <div class="col-md-2">
+          <div class="row" v-for="a in ads" :key="a.id">
+            <div class="col-12">
+              <Ad :ad="a" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
