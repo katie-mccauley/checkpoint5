@@ -21,7 +21,12 @@
         </div>
       </div>
       <h2 class="text-danger">{{ post.creator.name }}</h2>
-      <img v-if="post.imgUrl" :src="post.imgUrl" alt="" class="img-fluid" />
+      <img
+        v-if="post.imgUrl"
+        :src="post.imgUrl"
+        alt=""
+        class="img-fluid rounded"
+      />
       <div>
         <p>Post updated: {{ new Date(post.createdAt).toLocaleString() }}</p>
       </div>
