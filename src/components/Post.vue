@@ -33,7 +33,7 @@
       <h2>{{ post.body }}</h2>
 
       <div>
-        <i class="mdi mdi-heart" @click="like"></i>
+        <i class="mdi mdi-heart selectable" @click="like"></i>
         {{ post.likes.length }}
       </div>
     </div>
