@@ -5,7 +5,7 @@
   <main>
     <div class="container-fluid">
       <div class="row flex-row">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <router-view />
         </div>
         <div class="col-md-2">

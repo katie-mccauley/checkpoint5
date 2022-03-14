@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col-md-10 bg-light rounded shadow m-3 card">
+    <div class="col-md-12 bg-light rounded shadow m-3 card">
       <div class="row justify-content-between">
         <div class="col-4">
           <img

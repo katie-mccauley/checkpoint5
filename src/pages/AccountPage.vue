@@ -4,13 +4,13 @@
     <img class="rounded" :src="account.picture" alt="" />
     <p>{{ account.email }}</p>
   </div>
-  <div class="row justify-content-center text-center">
+  <!-- <div class="row justify-content-center text-center">
     <CreateForm />
-  </div>
-  <div class="row justify-content-center text-center">
+  </div> -->
+  <!-- <div class="row justify-content-center text-center">
     <h1>Edit your Account</h1>
     <EditAccount />
-  </div>
+  </div> -->
 </template>
 
 <script>
