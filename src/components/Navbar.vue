@@ -16,8 +16,8 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+      <!-- <ul class="navbar-nav me-auto">
         <li>
           <router-link
             :to="{ name: 'About' }"
@@ -26,7 +26,7 @@
             About
           </router-link>
         </li>
-      </ul>
+      </ul> -->
       <span class="navbar-text">
         <button
           class="
